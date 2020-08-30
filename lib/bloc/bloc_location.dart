@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:tutorial_flutter_bloc_restaurant_finder/bloc/bloc.dart';
 import 'package:tutorial_flutter_bloc_restaurant_finder/data_layers/location.dart';
 
-class LocationBloc implements BloC {
+class LocationBloC implements BloC {
   Location _location;
   Location get selectedLocation => _location;
 

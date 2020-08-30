@@ -4,7 +4,7 @@ import 'package:tutorial_flutter_bloc_restaurant_finder/bloc/bloc.dart';
 import 'package:tutorial_flutter_bloc_restaurant_finder/data_layers/location.dart';
 import 'package:tutorial_flutter_bloc_restaurant_finder/data_layers/zomato_client.dart';
 
-class LocationQueryBloc implements BloC {
+class LocationQueryBloC implements BloC {
   final _controller = StreamController<List<Location>>();
   final _client = ZomatoClient();
 
