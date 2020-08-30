@@ -12,7 +12,7 @@ class ZomatoClient {
   final _host = 'developers.zomato.com';
   final _contextRoot = 'api/v2.1';
 
-  Future<List<Location>> fetchLocation(String query) async {
+  Future<List<Location>> fetchLocations(String query) async {
     final results = await request(
         path: 'locations', parameters: {'query': query, 'count': '10'});
 
