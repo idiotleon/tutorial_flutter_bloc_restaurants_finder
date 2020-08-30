@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tutorial_flutter_bloc_restaurant_finder/bloc/bloc_location.dart';
 import 'package:tutorial_flutter_bloc_restaurant_finder/bloc/bloc_provider.dart';
 import 'package:tutorial_flutter_bloc_restaurant_finder/data_layers/location.dart';
+import 'package:tutorial_flutter_bloc_restaurant_finder/ui/RestaurantScreen.dart';
 
 import 'location_screen.dart';
 
@@ -17,7 +18,7 @@ class MainScreen extends StatelessWidget {
           return LocationScreen();
         }
 
-        return Container();
+        return RestaurantScreen(location: location);
       },
     );
   }
