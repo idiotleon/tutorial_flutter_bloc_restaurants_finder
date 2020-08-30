@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:tutorial_bloc_restaurants/bloc/bloc.dart';
-import 'package:tutorial_bloc_restaurants/data_layers/location.dart';
-import 'package:tutorial_bloc_restaurants/data_layers/zomato_client.dart';
+import 'package:tutorial_flutter_bloc_restaurant_finder/bloc/bloc.dart';
+import 'package:tutorial_flutter_bloc_restaurant_finder/data_layers/location.dart';
+import 'package:tutorial_flutter_bloc_restaurant_finder/data_layers/zomato_client.dart';
 
 class LocationQueryBloc implements BloC {
   final _controller = StreamController<List<Location>>();
