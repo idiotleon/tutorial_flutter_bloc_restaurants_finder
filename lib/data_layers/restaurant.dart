@@ -1,4 +1,4 @@
-import 'package:tutorial_bloc_restaurants/data_layers/rating.dart';
+import 'rating.dart';
 
 class Restaurant {
   final String id;

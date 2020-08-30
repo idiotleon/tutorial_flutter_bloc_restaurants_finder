@@ -4,7 +4,7 @@ import 'dart:convert' show json;
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 
-import 'package:tutorial_bloc_restaurants/data_layers/location.dart';
+import 'location.dart';
 import 'restaurant.dart';
 
 class ZomatoClient {
