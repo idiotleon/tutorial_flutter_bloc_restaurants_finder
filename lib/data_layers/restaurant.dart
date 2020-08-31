@@ -24,7 +24,7 @@ class Restaurant {
         name = json['name'],
         url = json['url'],
         thumbUrl = json['thumb'],
-        imageUrl = json['feature_image'],
+        imageUrl = json['featured_image'],
         priceRange = json['price_range'],
         currency = json['currency'],
         cuisines = json['cuisines'],

@@ -4,7 +4,9 @@ import 'package:tutorial_flutter_bloc_restaurant_finder/bloc/bloc_provider.dart'
 import 'package:tutorial_flutter_bloc_restaurant_finder/bloc/restaurant_bloc.dart';
 import 'package:tutorial_flutter_bloc_restaurant_finder/data_layers/location.dart';
 import 'package:tutorial_flutter_bloc_restaurant_finder/data_layers/restaurant.dart';
-import 'package:tutorial_flutter_bloc_restaurant_finder/ui/image_container.dart';
+import 'package:tutorial_flutter_bloc_restaurant_finder/ui/screen_favorite.dart';
+import 'package:tutorial_flutter_bloc_restaurant_finder/ui/screen_location.dart';
+import 'package:tutorial_flutter_bloc_restaurant_finder/ui/tile_restaurant.dart';
 
 class RestaurantScreen extends StatelessWidget {
   final Location location;
@@ -16,8 +18,23 @@ class RestaurantScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(location.title),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.favorite_border),
+            onPressed: () => Navigator.of(context)
+                .push(MaterialPageRoute(builder: (_) => FavoriteScreen())),
+          ),
+        ],
       ),
       body: _buildSearch(context),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.edit_location),
+        onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => LocationScreen(
+                  isFullScreenDialog: true,
+                ),
+            fullscreenDialog: true)),
+      ),
     );
   }
 
@@ -66,29 +83,12 @@ class RestaurantScreen extends StatelessWidget {
 
   Widget _buildSearchResults(List<Restaurant> results) {
     return ListView.separated(
-        itemBuilder: (context, index) {
-          final restaurant = results[index];
-          return RestaurantTile(restaurant: restaurant);
-        },
-        separatorBuilder: (context, index) => Divider(),
-        itemCount: results.length);
-  }
-}
-
-class RestaurantTile extends StatelessWidget {
-  const RestaurantTile({
-    Key key,
-    @required this.restaurant,
-  }) : super(key: key);
-
-  final Restaurant restaurant;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: ImageContainer(width: 50, height: 50, url: restaurant.thumbUrl),
-      title: Text(restaurant.name),
-      trailing: Icon(Icons.keyboard_arrow_right),
+      itemBuilder: (context, index) {
+        final restaurant = results[index];
+        return RestaurantTile(restaurant: restaurant);
+      },
+      separatorBuilder: (context, index) => Divider(),
+      itemCount: results.length,
     );
   }
 }
